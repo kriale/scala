@@ -1,0 +1,16 @@
+package kriale.lessons.scala
+package hw1
+
+object MyArray {
+  def main(args: Array[String]): Unit = {
+    var list1 = Array("Linux", "Windows", "MacOS")
+
+    // Sorting
+    list1 = list1.sortWith((a, b) => a < b)
+    println("Sorted array: " + list1.mkString("Array(", ", ", ")"))
+
+    // Filtering
+    list1 = list1.filter(os => os.toLowerCase.endsWith("s"))
+    println("Filtered array: " + list1.mkString("Array(", ", ", ")"))
+  }
+}
