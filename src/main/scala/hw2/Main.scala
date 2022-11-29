@@ -3,7 +3,7 @@ package hw2
 
 object Main {
   def main(args: Array[String]): Unit = {
-    this.task1()
+    this.task2()
   }
 
   def task1(): Unit = {
@@ -21,5 +21,21 @@ object Main {
     println("2) Calculate total weight: " + mainBasket.totalBallsWeight())
 
     println("3) Count balls of white color: " + mainBasket.countBallsOfColor("White"))
+  }
+
+  def task2(): Unit = {
+
+    println("1) Create empty array: ")
+    val array0 = new CustomArray(3)
+    array0.printArray()
+
+    println("2) Set values: ")
+    array0.setElement(0, 1).setElement(1, 2).setElement(2, 3).printArray()
+
+    println("3) Get the first element: " + array0.getElement(0))
+
+    println("4) Generate 3 unsorted arrays: ")
+    val standardArray = Array[Int](2, 3, 1)
+    val array1 = new CustomArray(standardArray)
   }
 }
