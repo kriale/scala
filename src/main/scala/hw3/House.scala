@@ -1,7 +1,9 @@
 package kriale.lessons.scala
 package hw3
 
-class House(val id: String, val flatNumber: String, val area: Double, val floorNumber: Int, val roomsNumber: Int, val street: String, val buildingType: String, val lifetime: Int) {
+import hw3.BuildingTypes.BuildingType
+
+class House(val id: String, val flatNumber: String, val area: Double, val floorNumber: Int, val roomsNumber: Int, val street: String, val buildingType: BuildingType, val lifetime: Int) {
 
 
   override def toString = s"House(id=$id, flatNumber=$flatNumber, area=$area, floorNumber=$floorNumber, roomsNumber=$roomsNumber, street=$street, buildingType=$buildingType, lifetime=$lifetime)"
