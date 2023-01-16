@@ -1,6 +1,8 @@
 package kriale.lessons.scala
 package hw2
 
+import scala.annotation.tailrec
+
 class CustomArray(val index: Int) {
   private val _array: Array[Int] = new Array(index)
 
@@ -18,15 +20,12 @@ class CustomArray(val index: Int) {
     this
   }
 
-  def printArray(): Unit = {
-    println(_array.mkString("CustomArray(", ", ", ")"))
-  }
-
   def standardQuickSort(): Unit = {
     scala.util.Sorting.quickSort(_array)
   }
 
-  def bubbleSort(array: Array[Int]): Array[Int] = {
+  @tailrec
+  private def bubbleSort(array: Array[Int]): Array[Int] = {
     var didSwap = false
 
     for (i <- 0 until array.length - 1)
@@ -44,25 +43,30 @@ class CustomArray(val index: Int) {
       array
   }
 
-  def selectionSort(array: Array[Int]): Array[Int] = {
-    for (i <- array.indices) {
+  def bubbleSort(): CustomArray = {
+    bubbleSort(_array)
+    this
+  }
+
+  def selectionSort(): CustomArray = {
+    for (i <- _array.indices) {
       var minPos = i
 
-      for (j <- i + 1 until array.length)
-        if (array(j) < array(minPos))
+      for (j <- i + 1 until _array.length)
+        if (_array(j) < _array(minPos))
           minPos = j
 
       if (minPos != i) {
-        val temp = array(i)
-        array(i) = array(minPos)
-        array(minPos) = array(i)
+        val temp = _array(i)
+        _array(i) = _array(minPos)
+        _array(minPos) = _array(i)
       }
     }
 
-    array
+    this
   }
 
-  def quickSort(array: Array[Int]): Array[Int] = {
+  private def quickSort(array: Array[Int]): Array[Int] = {
     if (array.length <= 1)
       return array
 
@@ -84,4 +88,11 @@ class CustomArray(val index: Int) {
       case `last` => math.max(first, middle)
     }
   }
+
+  def quickSort(): CustomArray = {
+    quickSort(_array)
+    this
+  }
+
+  override def toString: String = _array.mkString("CustomArray(", ", ", ")")
 }

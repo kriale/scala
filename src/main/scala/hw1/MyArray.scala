@@ -10,7 +10,11 @@ object MyArray {
     println("Sorted array: " + list1.mkString("Array(", ", ", ")"))
 
     // Filtering
-    list1 = list1.filter(os => os.toLowerCase.endsWith("s"))
-    println("Filtered array: " + list1.mkString("Array(", ", ", ")"))
+    val list2 = list1.filter(os => os.toLowerCase.endsWith("s"))
+    println("Filtered array: " + list2.mkString("Array(", ", ", ")"))
+
+    // Stream
+    val stream = LazyList()
+    println("Filtered array: " + stream.toList.mkString("Stream(", ", ", ")"))
   }
 }
